@@ -2,17 +2,25 @@
 // Run this to configure your Twilio phone number
 
 const twilio = require('twilio')
+require('dotenv').config()
 
-const accountSid = 'AC39196d44d80507cb020bda95e7bbdb1a'
-const authToken = '2d816aebc32da6884a70f08cef5149f1'
+const accountSid = process.env.TWILIO_ACCOUNT_SID
+const authToken = process.env.TWILIO_AUTH_TOKEN
+
+if (!accountSid || !authToken) {
+  console.error('❌ Missing Twilio credentials!')
+  console.error('Please set TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN in your .env file')
+  process.exit(1)
+}
+
 const client = twilio(accountSid, authToken)
 
 async function setupTwilio() {
   try {
     console.log('Setting up Twilio voice assistant...')
     
-    // Get your phone number
-    const phoneNumber = '+61340527417'
+    // Get your phone number from environment or use default
+    const phoneNumber = process.env.TWILIO_PHONE_NUMBER || '+61340527417'
     
     // You need to configure the webhook URL in Twilio Console
     // Go to: https://console.twilio.com/us1/develop/phone-numbers/manage/incoming
