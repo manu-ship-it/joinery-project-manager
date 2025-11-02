@@ -13,3 +13,4 @@ CREATE INDEX idx_materials_is_ordered ON materials(is_ordered);
 UPDATE materials 
 SET is_ordered = FALSE, order_number = '' 
 WHERE is_ordered IS NULL OR order_number IS NULL;
+

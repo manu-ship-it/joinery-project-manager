@@ -123,3 +123,4 @@ INSERT INTO installers (name, contact_info) VALUES
 -- Insert sample project
 INSERT INTO projects (project_number, client, project_name, project_address, project_status, install_commencement_date, install_duration, overall_project_budget, priority_level) VALUES 
 ('2024-001', 'ABC Construction', 'Kitchen Renovation', '123 Main St, City', 'in_progress', '2024-03-15', 5, 25000.00, 'high');
+
